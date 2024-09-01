@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completions</title>
+    <script src="scripts.js">
+        import OpenAI from 'openai';
+
+        const client = new OpenAI({
+          apiKey: process.env['OPENAI_API_KEY'], // This is the default and can be omitted
+        });
+        
+        async function main() {
+          const chatCompletion = await client.chat.completions.create({
+            messages: [{ role: role, content: content }],
+            model: model,
+          });
+        }
+        </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #555;
+        }
+        p {
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <p><h1>Completions</h1></p>
+    <p><form action="/action_page.html" method="post">
+
+        <label for="role">Role:</label>
+        <select id="role">
+            <option value="user">user</option>
+            <option value="system">system</option>
+        </select><br><br>
+        
+        <label for="content">Content:</label><br>
+        <textarea id="content" cols="50" rows="10" name="content"></textarea><br><br>
+        
+        <label for="model">Model:</label>
+        <select id="model">
+          <option value="gpt-4o">gpt-4o</option>
+          <option value="gpt-4o-mini">gpt-4o-mini</option>
+          <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+        </select><br><br>
+
+        <input type="submit" value="Create completion">
+      </form></p>
+    </div>
+</body>
+</html>
