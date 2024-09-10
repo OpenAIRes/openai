@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Chat Webpage">
+    <title>Your Personal Chat Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        .chat-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            text-align: left;
+            background-color: #f9f9f9;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Chat Page</h1>
+        <div class="chat-box" id="chatBox">
+            <p><strong>ChatBot:</strong> Hello! How can I help you today?</p>
+        </div>
+        <input type="text" id="userInput" placeholder="Type your message here..." />
+        <button onclick="sendMessage()">Send</button>
+        <div class="footer">
+            <p>Powered by <a href="https://chatgpt.com/" target="_blank">ChatGPT</a></p>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var chatBox = document.getElementById('chatBox');
+            var userInput = document.getElementById('userInput');
+            var userMessage = userInput.value.trim();
+            
+            if (userMessage) {
+                chatBox.innerHTML += '<p><strong>You:</strong> ' + userMessage + '</p>';
+                chatBox.innerHTML += '<p><strong>ChatBot:</strong> I\'m just a demo. Imagine I replied smartly :)</p>';
+                userInput.value = '';
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>
